@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Ca1_RAD_302.Models;
+using Ca1_RAD_302.DAL;
 
 namespace Ca1_RAD_302.Controllers
 {
@@ -17,17 +18,34 @@ namespace Ca1_RAD_302.Controllers
     {
         private Ca1_RAD_302Context db = new Ca1_RAD_302Context();
 
+        private IRepository<Fixture> repo;
         // GET: api/Fixtures
-        public IQueryable<Fixture> GetFixtures()
+
+        public FixturesController()
         {
-            return db.Fixtures;
+
+            repo = new FixtureRepository(new Ca1_RAD_302Context());
         }
+
+        public List<Fixture> GetFixtures()
+        {
+
+            return repo.GetAllItems();
+        }
+
+
+        //public IQueryable<Fixture> GetFixtures()
+        //{
+        //   // return repo.GetAllItems();
+        //    return db.Fixtures;
+        //}
 
         // GET: api/Fixtures/5
         [ResponseType(typeof(Fixture))]
         public async Task<IHttpActionResult> GetFixture(int id)
         {
-            Fixture fixture = await db.Fixtures.FindAsync(id);
+            //Fixture fixture = await db.Fixtures.FindAsync(id);
+            Fixture fixture = repo.GetItemWithID(id);
             if (fixture == null)
             {
                 return NotFound();
@@ -35,6 +53,7 @@ namespace Ca1_RAD_302.Controllers
 
             return Ok(fixture);
         }
+
 
         // PUT: api/Fixtures/5
         [ResponseType(typeof(void))]
@@ -50,11 +69,15 @@ namespace Ca1_RAD_302.Controllers
                 return BadRequest();
             }
 
-            db.Entry(fixture).State = EntityState.Modified;
+
+            //db.Entry(fixture).State = EntityState.Modified;
+            repo.InsertItem(fixture);
+            repo.Save();
 
             try
             {
-                await db.SaveChangesAsync();
+                repo.Save();
+                //await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -79,7 +102,8 @@ namespace Ca1_RAD_302.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+           // repo.InsertItem(fixture);
+           // repo.Save();
             db.Fixtures.Add(fixture);
             await db.SaveChangesAsync();
 
@@ -90,14 +114,17 @@ namespace Ca1_RAD_302.Controllers
         [ResponseType(typeof(Fixture))]
         public async Task<IHttpActionResult> DeleteFixture(int id)
         {
-            Fixture fixture = await db.Fixtures.FindAsync(id);
+            // Fixture fixture = await db.Fixtures.FindAsync(id);
+            Fixture fixture = repo.GetItemWithID(id);
             if (fixture == null)
             {
                 return NotFound();
             }
 
-            db.Fixtures.Remove(fixture);
-            await db.SaveChangesAsync();
+            repo.DeleteItem(id);
+            repo.Save();
+           // db.Fixtures.Remove(fixture);
+           // await db.SaveChangesAsync();
 
             return Ok(fixture);
         }

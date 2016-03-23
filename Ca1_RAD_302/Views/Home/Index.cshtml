@@ -17,35 +17,13 @@
                 <ul class="list-unstyled" data-bind="foreach: matches">
                     <li>
                         <strong><span data-bind="text: CompetitionName"></span></strong>: <span data-bind="text: MatchTitle"></span>
-                        <small><a href="#" data-bind="click: $parent.getMatchDetail" >Details</a></small>
+                        <small><a href="#" data-bind="click: $parent.getMatchDetail">Details</a></small>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
     </div>
-    <!-- ko if:detail() -->
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2 class="panel-title">Match Details</h2>
-            </div>
-            <table class="table">
-                <tr><td>Competition</td><td data-bind="text: detail().CompetitionName"></td></tr>
-                <tr><td>Competition</td><td data-bind="text: detail().MatchTitle "></td></tr>
-                <tr><td>Kick Off</td><td data-bind="text: detail().KickOff"></td></tr>
-                <tr><td>Home Team</td><td data-bind="text: detail().HomeTeam"></td>
-                <td>Odds</td><td data-bind="text: detail().HomePrice"></td></tr>
-                <tr><td>Away Team</td><td data-bind="text: detail().AwayTeam"></td>
-                <td>Odds</td><td data-bind="text: detail().AwayPrice"></td></tr>
-                <tr><td>Draw</td><td data-bind="text: detail().Draw"></td>
-                <td>Odds</td><td data-bind="text: detail().DrawPrice"></td></tr>
-
-            </table>
-        </div>
-    </div>
-
-    <!-- /ko -->
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -66,7 +44,7 @@
                         <div class="col-sm-6">
                             <input type="text" class="form-control" id="inputMatchTitle" data-bind="value:MatchTitle" />
                         </div>
-                        
+
                         <label for="inputKickOff" class="col-sm-6 control-label">KO</label>
                         <div class="col-sm-6">
                             <input type="date" class="form-control" id="inputKickOff" data-bind="value:KickOff" />
@@ -109,3 +87,27 @@
         </div>
     </div>
 </div>
+
+    <!-- ko if:detail() -->
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Match Details</h2>
+            </div>
+            <table class="table">
+                <tr><td>Competition</td><td data-bind="text: detail().CompetitionName"></td></tr>
+                <tr><td>Competition</td><td data-bind="text: detail().MatchTitle "></td></tr>
+                <tr><td>Kick Off</td><td data-bind="text: detail().KickOff"></td></tr>
+                <tr><td>Home Team</td><td data-bind="text: detail().HomeTeam"></td>
+                <td>Odds</td><td data-bind="text: detail().HomePrice"></td></tr>
+                <tr><td>Away Team</td><td data-bind="text: detail().AwayTeam"></td>
+                <td>Odds</td><td data-bind="text: detail().AwayPrice"></td></tr>
+                <tr><td>Draw</td><td data-bind="text: detail().Draw"></td>
+                <td>Odds</td><td data-bind="text: detail().DrawPrice"></td></tr>
+
+            </table>
+        </div>
+    </div>
+
+    <!-- /ko -->
+    
