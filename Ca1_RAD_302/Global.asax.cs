@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ca1_RAD_302.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,11 +14,13 @@ namespace Ca1_RAD_302
     {
         protected void Application_Start()
         {
+            GetFixtures.RunAsync();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            
         }
     }
 }

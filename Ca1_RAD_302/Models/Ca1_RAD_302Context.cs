@@ -22,5 +22,7 @@ namespace Ca1_RAD_302.Models
         public System.Data.Entity.DbSet<Ca1_RAD_302.Models.Fixture> Fixtures { get; set; }
 
         public System.Data.Entity.DbSet<Ca1_RAD_302.Models.Match> Matches { get; set; }
+
+        public System.Data.Entity.DbSet<Ca1_RAD_302.Models.GetFixtures> GetFixtures { get; set; }
     }
 }

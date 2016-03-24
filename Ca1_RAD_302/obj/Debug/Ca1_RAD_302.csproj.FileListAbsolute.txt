@@ -98,9 +98,9 @@ C:\Users\Administrator\Desktop\CA1\Ca1_RAD_302\bin\System.Web.WebPages.xml
 C:\Users\Administrator\Desktop\CA1\Ca1_RAD_302\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Administrator\Desktop\CA1\Ca1_RAD_302\bin\System.Web.WebPages.Razor.xml
 C:\Users\Administrator\Desktop\CA1\Ca1_RAD_302\bin\Antlr3.Runtime.pdb
-C:\Users\Administrator\Desktop\CA1\Ca1_RAD_302\obj\Debug\Ca1_RAD_302.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\CA1\Ca1_RAD_302\obj\Debug\Ca1_RAD_302.Migrations.Initial.resources
 C:\Users\Administrator\Desktop\CA1\Ca1_RAD_302\obj\Debug\Ca1_RAD_302.Migrations.first.resources
 C:\Users\Administrator\Desktop\CA1\Ca1_RAD_302\obj\Debug\Ca1_RAD_302.csproj.GenerateResource.Cache
 C:\Users\Administrator\Desktop\CA1\Ca1_RAD_302\obj\Debug\Ca1_RAD_302.dll
 C:\Users\Administrator\Desktop\CA1\Ca1_RAD_302\obj\Debug\Ca1_RAD_302.pdb
+C:\Users\Administrator\Desktop\CA1\Ca1_RAD_302\obj\Debug\Ca1_RAD_302.csprojResolveAssemblyReference.cache

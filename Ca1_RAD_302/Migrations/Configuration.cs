@@ -10,11 +10,16 @@ namespace Ca1_RAD_302.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
+        public object AsyncContext { get; private set; }
+       
         protected override void Seed(Ca1_RAD_302.Models.Ca1_RAD_302Context context)
-        {
+        {   
+            // FixturesResponse task = GetFixtures.RunAsync();
+
             context.Fixtures.AddOrUpdate(x => x.Id,
                 new Fixture() { Id = 1, Name = "English Premiership" },
                 new Fixture() { Id = 2, Name = "LOI Premiership" }
@@ -79,6 +84,9 @@ namespace Ca1_RAD_302.Migrations
         }
         );
 
+
+          
+            
 
 
         }
