@@ -20,6 +20,7 @@ namespace Ca1_RAD_302.Controllers
         // GET: api/Matches
         public IQueryable<MatchDTO> GetMatches()
         {
+           
             var matches = from m in db.Matches
                           select new MatchDTO()
                           {

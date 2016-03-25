@@ -22,31 +22,37 @@ namespace Ca1_RAD_302.Controllers
     {
         private Ca1_RAD_302Context db = new Ca1_RAD_302Context();
 
-        
 
-    //static async task runasync()
-    //    {
-    //        using (var client = new httpclient())
-    //        {
-    //            client.baseaddress = new uri("https://api.pinnaclesports.com/v1/fixtures?sportid=29");
-    //            client.defaultrequestheaders.accept.clear();
-    //            client.defaultrequestheaders.accept.add(new mediatypewithqualityheadervalue("application/json"));
-    //            string credentials = string.format("{0}:{1}", "gg862057", "@1sideside");
-    //            byte[] bytes = encoding.utf8.getbytes(credentials);
-    //            string base64 = convert.tobase64string(bytes);
-    //            string authorization = string.concat("basic ", base64);
+        public void ff(FixturesResponse fr)
+        {
 
-    //            httpresponsemessage response = await client.getasync("api/getfixtures");
-    //            var gizmo = new getfixtures() { sportid = 29, islive = false };
-    //            response = await client.postasjsonasync("api/getfixtures", gizmo);
-    //            if (response.issuccessstatuscode)
-    //            {
-    //                uri gizmourl = response.headers.location;
-                    
-    //            }
-                
-    //        }
-    //    }
+        }
+
+
+
+        //static async task runasync()
+        //    {
+        //        using (var client = new httpclient())
+        //        {
+        //            client.baseaddress = new uri("https://api.pinnaclesports.com/v1/fixtures?sportid=29");
+        //            client.defaultrequestheaders.accept.clear();
+        //            client.defaultrequestheaders.accept.add(new mediatypewithqualityheadervalue("application/json"));
+        //            string credentials = string.format("{0}:{1}", "gg862057", "@1sideside");
+        //            byte[] bytes = encoding.utf8.getbytes(credentials);
+        //            string base64 = convert.tobase64string(bytes);
+        //            string authorization = string.concat("basic ", base64);
+
+        //            httpresponsemessage response = await client.getasync("api/getfixtures");
+        //            var gizmo = new getfixtures() { sportid = 29, islive = false };
+        //            response = await client.postasjsonasync("api/getfixtures", gizmo);
+        //            if (response.issuccessstatuscode)
+        //            {
+        //                uri gizmourl = response.headers.location;
+
+        //            }
+
+        //        }
+        //    }
 
 
 

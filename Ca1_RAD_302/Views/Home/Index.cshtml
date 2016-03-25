@@ -2,112 +2,145 @@
     @Scripts.Render("~/bundles/app")
 }
 
-<div class="page-header">
-    <h1></h1>
+
+
+<div id="header" class="page-header" >
+    <h1 class="panel-title, text-center" ><span class="text-danger"></span>Match Betting</h1>
+    <h3 class="panel-title, text-center ">Brought to you by S00140654</h3>
+
 </div>
-
-<div class="row">
-
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2 class="panel-title">Matches</h2>
-            </div>
-            <div class="panel-body">
-                <ul class="list-unstyled" data-bind="foreach: matches">
-                    <li>
-                        <strong><span data-bind="text: CompetitionName"></span></strong>: <span data-bind="text: MatchTitle"></span>
-                        <small><a href="#" data-bind="click: $parent.getMatchDetail">Details</a></small>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+<div id="Container" class="container-fluid">
+    <div id="explain" class="row"><p>This app takes data from the Pinnacle Sports Website and makes it available in its own API.
+        The user can add their own betting event, or click on an event to see the details. If there are no fixtures, it maybe that there
+        are no upcoming matches in the Austrian PL, Pinnacle do not have a look up for the various leagues in their documentation, and I gave up trying to find the 
+        English and Irish by inspecting the returned jsons</p>
     </div>
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2 class="panel-title">Add Match</h2>
-            </div>
-
-            <div class="panel-body">
-                <form class="form-horizontal" data-bind="submit: addMatch">
-                    <div class="form-group">
-                        <label for="inputFixture" class="col-sm-6 control-label">Competition</label>
-                        <div class="col-sm-6">
-                            <select data-bind="options:fixtures, optionsText: 'Name', value: newMatch.Fixture"></select>
-                        </div>
+        <div id="toprow" class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Add Match</h2>
                     </div>
 
-                    <div class="form-group" data-bind="with: newMatch">
-                        <label for="inputTitle" class="col-sm-6 control-label">Match Title</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="inputMatchTitle" data-bind="value:MatchTitle" />
-                        </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" data-bind="submit: addMatch">
+                            <div class="form-group">
+                                <label for="inputFixture" class="col-sm-6 control-label">Competition</label>
+                                <div class="col-sm-6">
+                                    <select data-bind="options:fixtures, optionsText: 'Name', value: newMatch.Fixture"></select>
+                                </div>
+                            </div>
 
-                        <label for="inputKickOff" class="col-sm-6 control-label">KO</label>
-                        <div class="col-sm-6">
-                            <input type="date" class="form-control" id="inputKickOff" data-bind="value:KickOff" />
-                        </div>
+                            <div class="form-group" data-bind="with: newMatch">
+                                <label for="inputTitle" class="col-sm-6 control-label">Match Title</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="inputMatchTitle" data-bind="value:MatchTitle" />
+                                </div>
 
-                        <label for="inputHomeTeam" class="col-sm-6 control-label">Home Team</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="inputHomeTeam" data-bind="value:HomeTeam" />
-                        </div>
+                                <label for="inputKickOff" class="col-sm-6 control-label">KO</label>
+                                <div class="col-sm-6">
+                                    <input type="date" class="form-control" id="inputKickOff" data-bind="value:KickOff" />
+                                </div>
 
-                        <label for="inputHomePrice" class="col-sm-6 control-label">Home Price</label>
-                        <div class="col-sm-6">
-                            <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:HomePrice" />
-                        </div>
+                                <label for="inputHomeTeam" class="col-sm-6 control-label">Home Team</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="inputHomeTeam" data-bind="value:HomeTeam" />
+                                </div>
 
-                        <label for="inputAwayTeam" class="col-sm-6 control-label">Away Team</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="inputAwayTeam" data-bind="value:AwayTeam" />
-                        </div>
+                                <label for="inputHomePrice" class="col-sm-6 control-label">Home Price</label>
+                                <div class="col-sm-6">
+                                    <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:HomePrice" />
+                                </div>
 
-                        <label for="inputAwayPrice" class="col-sm-6 control-label">Away Price</label>
-                        <div class="col-sm-6">
-                            <input type="number" step="any" class="form-control" id="inputAwayPrice" data-bind="value:AwayPrice" />
-                        </div>
+                                <label for="inputAwayTeam" class="col-sm-6 control-label">Away Team</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="inputAwayTeam" data-bind="value:AwayTeam" />
+                                </div>
 
-                        <label for="inputDraw" class="col-sm-6 control-label">Draw</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="inputDraw" data-bind="value:Draw" />
-                        </div>
+                                <label for="inputAwayPrice" class="col-sm-6 control-label">Away Price</label>
+                                <div class="col-sm-6">
+                                    <input type="number" step="any" class="form-control" id="inputAwayPrice" data-bind="value:AwayPrice" />
+                                </div>
 
-                        <label for="inputDrawPrice" class="col-sm-6 control-label">Draw Price</label>
-                        <div class="col-sm-6">
-                            <input type="number" step="any" class="form-control" id="inputDrawPrice" data-bind="value:DrawPrice" />
-                        </div>
+                                <label for="inputDraw" class="col-sm-6 control-label">Draw</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="inputDraw" data-bind="value:Draw" />
+                                </div>
 
+                                <label for="inputDrawPrice" class="col-sm-6 control-label">Draw Price</label>
+                                <div class="col-sm-6">
+                                    <input type="number" step="any" class="form-control" id="inputDrawPrice" data-bind="value:DrawPrice" />
+                                </div>
+
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
 
-    <!-- ko if:detail() -->
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2 class="panel-title">Match Details</h2>
+
+            <!-- ko if:detail() -->
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Match Details</h2>
+                    </div>
+                    <table class="table">
+                        <tr><td>Competition</td><td data-bind="text: detail().CompetitionName"></td></tr>
+                        <tr><td>Competition</td><td data-bind="text: detail().MatchTitle "></td></tr>
+                        <tr><td>Kick Off</td><td data-bind="text: detail().KickOff"></td></tr>
+                        <tr>
+                            <td>Home Team</td>
+                            <td data-bind="text: detail().HomeTeam"></td>
+                            <td>Odds</td>
+                            <td data-bind="text: detail().HomePrice"></td>
+                        </tr>
+                        <tr>
+                            <td>Away Team</td>
+                            <td data-bind="text: detail().AwayTeam"></td>
+                            <td>Odds</td>
+                            <td data-bind="text: detail().AwayPrice"></td>
+                        </tr>
+                        <tr>
+                            <td>Draw</td>
+                            <td data-bind="text: detail().Draw"></td>
+                            <td>Odds</td>
+                            <td data-bind="text: detail().DrawPrice"></td>
+                        </tr>
+
+                    </table>
+                </div>
             </div>
-            <table class="table">
-                <tr><td>Competition</td><td data-bind="text: detail().CompetitionName"></td></tr>
-                <tr><td>Competition</td><td data-bind="text: detail().MatchTitle "></td></tr>
-                <tr><td>Kick Off</td><td data-bind="text: detail().KickOff"></td></tr>
-                <tr><td>Home Team</td><td data-bind="text: detail().HomeTeam"></td>
-                <td>Odds</td><td data-bind="text: detail().HomePrice"></td></tr>
-                <tr><td>Away Team</td><td data-bind="text: detail().AwayTeam"></td>
-                <td>Odds</td><td data-bind="text: detail().AwayPrice"></td></tr>
-                <tr><td>Draw</td><td data-bind="text: detail().Draw"></td>
-                <td>Odds</td><td data-bind="text: detail().DrawPrice"></td></tr>
 
-            </table>
+            <!-- /ko -->
+
+
         </div>
-    </div>
 
-    <!-- /ko -->
-    
+
+    <div id="bottomrow" class="row">
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Matches</h2>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-unstyled" data-bind="foreach: matches">
+                        <li>
+                            <strong><span data-bind="text: CompetitionName"></span></strong>: <span data-bind="text: MatchTitle"></span>
+                            <small><a href="#" data-bind="click: $parent.getMatchDetail">Details</a></small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+        </div>
+
+
+
+
+
+    </div>
+    </div>

@@ -5,23 +5,26 @@ namespace Ca1_RAD_302.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-
+    using System.Threading.Tasks;
     internal sealed class Configuration : DbMigrationsConfiguration<Ca1_RAD_302.Models.Ca1_RAD_302Context>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
+            
         }
+
+      
 
         public object AsyncContext { get; private set; }
        
         protected override void Seed(Ca1_RAD_302.Models.Ca1_RAD_302Context context)
         {   
-            // FixturesResponse task = GetFixtures.RunAsync();
+            
 
             context.Fixtures.AddOrUpdate(x => x.Id,
-                new Fixture() { Id = 1, Name = "English Premiership" },
+                new Fixture() { Id = 1, Name = "Austrian Premiership" },
                 new Fixture() { Id = 2, Name = "LOI Premiership" }
                 );
             context.Matches.AddOrUpdate(x => x.Id,
@@ -68,6 +71,23 @@ namespace Ca1_RAD_302.Migrations
             FixtureId = 2
 
         },
+
+        //new Match()
+        //{
+        //    Id = 3,
+        //    KickOff = DateTime.Parse("01/04/2016"),
+        //    MatchTitle = "Milan v Dundalk",
+        //    HomeTeam = "Milan",
+        //    AwayTeam = "Dundalk",
+        //    Draw = "Draw",
+        //    HomePrice = 2.88,
+        //    AwayPrice = 2.88,
+        //    DrawPrice = 2.88,
+        //    FixtureId = 2
+
+        //},
+
+
         new Match()
         {
             Id = 4,
@@ -83,10 +103,6 @@ namespace Ca1_RAD_302.Migrations
 
         }
         );
-
-
-          
-            
 
 
         }

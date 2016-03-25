@@ -9,12 +9,12 @@ using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace Ca1_RAD_302
-{
+{   
     public class WebApiApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
         {
-            GetFixtures.RunAsync();
+           GetFixtures.RunAsync();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
